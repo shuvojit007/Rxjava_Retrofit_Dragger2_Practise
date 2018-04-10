@@ -5,6 +5,8 @@ import android.content.Context;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.Cache;

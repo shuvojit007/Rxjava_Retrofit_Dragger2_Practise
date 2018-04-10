@@ -3,6 +3,7 @@ package com.example.shobojit.rxjava_retrofit_dragger2_practise.Di;
 import android.content.Context;
 
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -15,7 +16,6 @@ public class ContextChannel {
         this.cn = cn;
     }
     @ApplicationContext
-    @AppScope
     @Provides
     public Context context(){
         return cn.getApplicationContext();

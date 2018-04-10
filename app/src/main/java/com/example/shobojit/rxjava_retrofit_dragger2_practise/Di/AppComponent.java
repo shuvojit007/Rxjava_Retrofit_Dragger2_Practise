@@ -7,6 +7,7 @@ import dagger.Component;
 @AppScope
 @Component(modules = {NetworkChannel.class,PicassoChannel.class})
 public interface AppComponent {
+    //void inject(Object object);
     GetMovieList getMovieList();
     Picasso getPicasso();
 }
