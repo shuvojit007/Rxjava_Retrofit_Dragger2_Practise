@@ -19,6 +19,7 @@ import org.w3c.dom.Text;
 
 import java.util.List;
 
+
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
@@ -28,18 +29,18 @@ import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Retrofit;
+
 
 public class MainActivity extends AppCompatActivity {
     TextView tt;
-
-//    @Inject
-//    Picasso picasso;
-//    @Inject
-//    Retrofit retrofit;
-
+    @Inject
     Picasso picasso;
+    @Inject
     GetMovieList getMovieList;
+
+
+    //Link -> https://android.jlelse.eu/dagger-2-part-i-basic-principles-graph-dependencies-scopes-3dfd032ccd82
+    //Link-> https://medium.com/@harivigneshjayapalan/dagger-2-for-android-beginners-advanced-part-i-1e14fccf2cc8
 
 
 
@@ -47,20 +48,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//
-//       App.getComponent().inject(this);
-//        MainActivityComponent mainActivityComponent = Dagger.builder()
-//                .mainActivityModule(new MainActivityModule(this))
-//                .
-//                .build();
 
-
+        App.getComponent().inject(this);
         AppComponent daggerAppComponent = DaggerAppComponent.builder()
                 .contextChannel(new ContextChannel(this))
                 .build();
-
-//        picasso =daggerAppComponent.getPicasso();
-     //  getMovieList = daggerAppComponent.getMovieList();
+    //  picasso =daggerAppComponent.getPicasso();
+     // getMovieList = daggerAppComponent.getMovieList();
         findViewById(R.id.btn).setOnClickListener((v)->doSomeWork());
     }
 

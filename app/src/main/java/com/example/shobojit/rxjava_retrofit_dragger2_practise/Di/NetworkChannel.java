@@ -1,14 +1,9 @@
 package com.example.shobojit.rxjava_retrofit_dragger2_practise.Di;
 
-import android.content.Context;
-import android.widget.Toast;
-
 import com.example.shobojit.rxjava_retrofit_dragger2_practise.Network.GetMovieList;
 import com.example.shobojit.rxjava_retrofit_dragger2_practise.Network.UrlManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -19,11 +14,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module(includes = OkHttpClientChannel.class)
 public class NetworkChannel {
+
     @Provides
     public GetMovieList getMovieList(Retrofit retrofit){
         return retrofit.create(GetMovieList.class);
     }
-
     @AppScope
     @Provides
     public Retrofit retrofit(OkHttpClient okHttpClient,
@@ -38,6 +33,7 @@ public class NetworkChannel {
                 .build();
 
     }
+
     @Provides
     public Gson gson(){
         GsonBuilder gsonBuilder = new GsonBuilder();
